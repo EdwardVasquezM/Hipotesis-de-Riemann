@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Hipótesis de Riemann</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .presentation-slide {
+            display: none;
+            padding: 20px;
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .presentation-slide.active {
+            display: flex;
+        }
+        .navigation-buttons {
+            margin-top: 20px;
+        }
+        .presentation-slide .math-display {
+            margin: 20px auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .slide-image {
+            max-width: 90%;
+            max-height: 40vh;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex flex-col items-center justify-center min-h-screen">
+
+    <div id="presentationContainer" class="presentation-container bg-white rounded-lg shadow-xl p-8 max-w-3xl w-full">
+
+        <div class="flex justify-end mb-4">
+            <button id="closeButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-sm">Cerrar</button>
+        </div>
+
+        <div class="presentation-slide active" data-slide="1">
+            <h1 class="text-4xl font-bold mb-4">La Hipótesis de Riemann</h1>
+            <p class="text-xl">Explorando uno de los mayores misterios de las matemáticas</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="2">
+            <h2 class="text-3xl font-bold mb-4">La Función Zeta de Euler</h2>
+            <p class="text-lg mb-4">Definida inicialmente por Euler para números reales s > 1 como una suma infinita:</p>
+            <div class="text-2xl font-mono mb-4 math-display">
+                \[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \dots\]
+            </div>
+            <p class="text-lg">Euler descubrió una conexión profunda con los números primos a través del Producto de Euler.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="3">
+            <h2 class="text-3xl font-bold mb-4">El Producto de Euler</h2>
+            <p class="text-lg mb-4">La función Zeta también puede expresarse como un producto infinito sobre todos los números primos p:</p>
+            <div class="text-2xl font-mono mb-4 math-display">
+                \[\zeta(s) = \prod_{p \text{ primo}} \frac{1}{1 - p^{-s}}\]
+            </div>
+            <p class="text-lg">Esta fórmula revela la conexión entre la función Zeta y la distribución de los números primos.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="4">
+            <h2 class="text-3xl font-bold mb-4">La Extensión de Riemann</h2>
+            <p class="text-lg mb-4">Bernhard Riemann extendió la definición de $\zeta(s)$ a los números complejos $s = \sigma + it$ mediante continuación analítica.</p>
+            <p class="text-lg">Esta extensión permite estudiar la función en casi todo el plano complejo (excepto en $s=1$, donde tiene un polo), lo cual es fundamental para encontrar sus ceros.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="5">
+            <h2 class="text-3xl font-bold mb-4">Ceros Triviales</h2>
+            <p class="text-lg mb-4">La función Zeta es cero para todos los enteros pares negativos:</p>
+            <div class="text-2xl font-mono mb-4 math-display">
+                \[s = -2, -4, -6, \dots\]
+            </div>
+            <p class="text-lg">Se llaman "triviales" porque su existencia se deriva fácilmente de la ecuación funcional de la función Zeta.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="6">
+            <h2 class="text-3xl font-bold mb-4">Ceros No Triviales y la Línea Crítica</h2>
+            <p class="text-lg mb-4">Los ceros más interesantes se encuentran en la banda crítica del plano complejo, donde $0 < \sigma < 1$.</p>
+            <p class="text-lg">La "línea crítica" es la vertical donde la parte real es $1/2$. Todos los ceros no triviales conocidos están sobre esta línea.</p>
+            <img src="imagenes_X/plano_complejo_linea_critica.png" alt="Plano complejo con ceros no triviales" class="slide-image">
+        </div>
+
+        <div class="presentation-slide" data-slide="7">
+            <h2 class="text-3xl font-bold mb-4">La Hipótesis de Riemann</h2>
+            <p class="text-lg font-bold mb-4">La hipótesis postula que:</p>
+            <p class="text-2xl italic">"Todos los ceros no triviales de la función Zeta de Riemann tienen una parte real igual a $1/2$."</p>
+            <p class="text-lg">Es decir, todos se encuentran en la línea crítica.</p>
+            <img src="imagenes_X/plano_complejo_zeta.png" alt="Plano complejo con ceros no triviales" class="slide-image">
+        </div>
+
+        <div class="presentation-slide" data-slide="8">
+            <h2 class="text-3xl font-bold mb-4">Importancia para los Números Primos</h2>
+            <p class="text-lg mb-4">La ubicación de los ceros no triviales está íntimamente ligada a la distribución de los números primos.</p>
+            <p class="text-lg">Si la hipótesis es cierta, implicaría que los números primos están distribuidos de la manera más "regular" posible.</p>
+            <p class="text-lg">Muchos resultados en teoría de números dependen de esta hipótesis.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="9">
+            <h2 class="text-3xl font-bold mb-4">Estado Actual</h2>
+            <p class="text-lg mb-4">La Hipótesis de Riemann sigue sin ser probada.</p>
+            <p class="text-lg">Se ha verificado computacionalmente para billones de ceros, pero una prueba general sigue siendo esquiva.</p>
+            <p class="text-lg">Es uno de los siete Problemas del Premio del Milenio con un premio de un millón de dólares.</p>
+        </div>
+
+        <div class="presentation-slide" data-slide="10">
+            <h2 class="text-3xl font-bold mb-4">¡... a continuación imágenes que nos inspiran!</h2>
+            <p class="text-xl">Un desafío que sigue inspirando a matemáticos en todo el mundo.</p>
+        </div>
+        
+        <div class="presentation-slide" data-slide="11">
+            <h2 class="text-3xl font-bold mb-4">Visualización Geométrica</h2>
+            <p class="text-lg">Estructura circular y ortogonal de $\zeta(s)$ centrada en $s=1$.</p>
+            <img src="imagenes_X/plano_complejo_zeta.png" class="slide-image">
+        </div>
+        
+        <div class="presentation-slide" data-slide="12">
+            <h2 class="text-3xl font-bold mb-4">Geometría y Simetría</h2>
+            <p class="text-lg">Combinación del plano complejo y curvas estructurales de $\zeta(s)$.</p>
+            <img src="imagenes_X/plano_complejo_linea_critica.png" class="slide-image">
+        </div>
+        
+        <div class="presentation-slide" data-slide="13">
+            <h2 class="text-3xl font-bold mb-4">Mapa Conforme</h2>
+            <p class="text-lg">Visualización cromática del comportamiento de $\zeta(s)$ en el plano complejo.</p>
+            <img src="imagenes_X/zeta_plot_1.png" class="slide-image">
+        </div>
+        <div class="presentation-slide" data-slide="14">
+            <h2 class="text-3xl font-bold mb-4">Mapa Contorno</h2>
+            <p class="text-lg">Visualización contornos y lineas critica $\zeta(s)$ en el plano complejo.</p>
+            <img src="imagenes_X/zeta_riemann_visualizacion.png" class="slide-image">
+        </div>
+        <div class="presentation-slide" data-slide="15">
+            <h2 class="text-3xl font-bold mb-4">Grafica de zeta</h2>
+            <p class="text-lg">Visualización $\zeta(s)$ en el plano complejo.</p>
+            <img src="imagenes_X/zeta_plot_1.png" class="slide-image">
+        </div>
+        
+        <div class="presentation-slide" data-slide="16">
+            <h2 class="text-3xl font-bold mb-4">Animación Vibrante</h2>
+            <p class="text-lg">Simulación animada del campo complejo de $\zeta(s)$.</p>
+            <video class="slide-image" controls autoplay loop muted>
+                <source src="imagenes_X/zeta_vibrante_animado.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+
+
+
+
+        <div class="navigation-buttons flex justify-between">
+            <button id="prevButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50">Anterior</button>
+            <button id="nextButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Siguiente</button>
+        </div>
+
+    </div>
+
+    <script>
+        const presentationContainer = document.getElementById('presentationContainer');
+        const slides = document.querySelectorAll('.presentation-slide');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const closeButton = document.getElementById('closeButton');
+        let currentSlideIndex = 0;
+        let mathJaxReady = false;
+
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    mathJaxReady = true;
+                    showSlide(currentSlideIndex);
+                }
+            }
+        };
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            updateButtons(index);
+            if (mathJaxReady) MathJax.typesetPromise();
+        }
+
+        function updateButtons(index) {
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === slides.length - 1;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        closeButton.addEventListener('click', () => {
+            presentationContainer.classList.add('hidden');
+        });
+
+        // Manejo del teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevButton.click();
+            } else if (e.key === 'ArrowRight') {
+                nextButton.click();
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
