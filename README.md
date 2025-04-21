@@ -13,7 +13,7 @@ Este repositorio contiene una presentación interactiva en HTML sobre la famosa 
   - `zeta_riemann_visualizacion.png`
   - `cfc6e20f-9fe1-4daf-8d93-c22d4e26a628.png`
 
-   https://EdwardVasquezM/Hipotesis-de-Riemann/
+   https://EdwardVasquezM.github.io/Hipotesis-de-Riemann/
    ```
 
 ## Autor
