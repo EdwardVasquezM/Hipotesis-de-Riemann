@@ -1,0 +1,12 @@
+# Archivos locales del sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Archivos temporales de Office
+~$*
+
+# Configuración local con posibles secretos
+.env
+.env.*
+!.env.example
